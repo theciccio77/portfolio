@@ -3,7 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Francesco Tavernese • Portfolio | Foto • Video • Web</title>
+    
+    <!-- SEO & Social Sharing -->
+    <title>Francesco Tavernese • Fotografo, Videomaker &amp; Sviluppatore Web</title>
+    <meta name="description" content="Francesco Tavernese — Fotografo d'azione, videomaker e sviluppatore web. Creo immagini potenti e siti moderni per atleti, palestre e ristoranti.">
+    
+    <!-- Open Graph / Social -->
+    <meta property="og:title" content="Francesco Tavernese • Portfolio">
+    <meta property="og:description" content="Fotografo, Videomaker e Web Developer. Scatti d'azione, video storytelling e siti web che convertono.">
+    <meta property="og:image" content="https://picsum.photos/id/1005/1200/630">
+    <meta property="og:url" content="https://tuo-dominio.netlify.app">
+    <meta property="og:type" content="website">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
@@ -223,7 +236,7 @@
             <div class="md:col-span-5 mb-10 md:mb-0">
                 <div class="aspect-[4/3] bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800">
                     <img src="https://picsum.photos/id/1005/800/600" 
-                         alt="Luca Rossi - Ritratto professionale"
+                         alt="Francesco Tavernese - Ritratto da dietro con felpa"
                          class="w-full h-full object-cover">
                 </div>
             </div>
@@ -248,7 +261,7 @@
                 <div class="flex flex-wrap gap-3 mt-8">
                     <div class="px-4 py-2 bg-zinc-900 rounded-2xl text-sm flex items-center gap-x-2 border border-zinc-800">
                         <i class="fa-solid fa-camera text-emerald-400"></i>
-                        <span class="font-medium">Canon R5 + Sony FX3</span>
+                        <span class="font-medium">Attrezzatura professionale</span>
                     </div>
                     <div class="px-4 py-2 bg-zinc-900 rounded-2xl text-sm flex items-center gap-x-2 border border-zinc-800">
                         <i class="fa-solid fa-laptop-code text-emerald-400"></i>
@@ -358,12 +371,101 @@
         <!-- Portfolio Grid -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="portfolio-grid">
             
-            <!-- FOTO 1 -->
+            <!-- VIDEO - The Ritual -->
             <div class="portfolio-card group bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800 cursor-pointer" 
-                 data-category="foto" onclick="showProjectModal(0)">
+                 data-category="video" onclick="showProjectModal(0)">
+                <div class="relative overflow-hidden aspect-video">
+                    <img src="images/ritual.jpg" 
+                         class="portfolio-img w-full h-full object-cover" alt="The Ritual - Video cinematic palestra">
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="w-14 h-14 bg-white/90 rounded-full flex items-center justify-center">
+                            <i class="fa-solid fa-play text-zinc-950 ml-0.5"></i>
+                        </div>
+                    </div>
+                    <div class="absolute top-4 left-4">
+                        <span class="px-3 py-1 text-xs font-semibold bg-black/70 backdrop-blur rounded-full">VIDEO</span>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h4 class="font-semibold text-xl tracking-tight">The Ritual</h4>
+                            <p class="text-emerald-400 text-sm">Cinematic • Allenamento</p>
+                        </div>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-zinc-500 group-hover:text-emerald-400 transition-colors mt-1"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FOTO - Le Mani del Redentore -->
+            <div class="portfolio-card group bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800 cursor-pointer" 
+                 data-category="foto" onclick="showProjectModal(1)">
+                <div class="relative overflow-hidden aspect-video">
+                    <img src="images/mani-redentore.jpg" 
+                         class="portfolio-img w-full h-full object-cover" alt="Le Mani del Redentore - Foto artistica">
+                    <div class="absolute top-4 left-4">
+                        <span class="px-3 py-1 text-xs font-semibold bg-black/70 backdrop-blur rounded-full">FOTO</span>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h4 class="font-semibold text-xl tracking-tight">Le Mani del Redentore</h4>
+                            <p class="text-emerald-400 text-sm">Fotografia Artistica</p>
+                        </div>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-zinc-500 group-hover:text-emerald-400 transition-colors mt-1"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- WEB - Osteria del Camino -->
+            <div class="portfolio-card group bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800 cursor-pointer" 
+                 data-category="web" onclick="showProjectModal(2)">
+                <div class="relative overflow-hidden aspect-video">
+                    <img src="images/osteria-interior.jpg" 
+                         class="portfolio-img w-full h-full object-cover" alt="Osteria del Camino - Sito ristorante">
+                    <div class="absolute top-4 left-4">
+                        <span class="px-3 py-1 text-xs font-semibold bg-black/70 backdrop-blur rounded-full">WEB</span>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h4 class="font-semibold text-xl tracking-tight">Osteria del Camino</h4>
+                            <p class="text-emerald-400 text-sm">Ristorante • Sito Web</p>
+                        </div>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-zinc-500 group-hover:text-emerald-400 transition-colors mt-1"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- WEB - LUMINA -->
+            <div class="portfolio-card group bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800 cursor-pointer" 
+                 data-category="web" onclick="showProjectModal(3)">
+                <div class="relative overflow-hidden aspect-video">
+                    <img src="images/lumina-interior.jpg" 
+                         class="portfolio-img w-full h-full object-cover" alt="LUMINA - Ristorante Milano">
+                    <div class="absolute top-4 left-4">
+                        <span class="px-3 py-1 text-xs font-semibold bg-black/70 backdrop-blur rounded-full">WEB</span>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h4 class="font-semibold text-xl tracking-tight">LUMINA</h4>
+                            <p class="text-emerald-400 text-sm">Fine Dining • Milano</p>
+                        </div>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-zinc-500 group-hover:text-emerald-400 transition-colors mt-1"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FOTO - Peak Performance (kept as strong example) -->
+            <div class="portfolio-card group bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800 cursor-pointer" 
+                 data-category="foto" onclick="showProjectModal(4)">
                 <div class="relative overflow-hidden aspect-video">
                     <img src="https://picsum.photos/id/1005/800/600" 
-                         class="portfolio-img w-full h-full object-cover" alt="Atleta in azione">
+                         class="portfolio-img w-full h-full object-cover" alt="Peak Performance - Action photo">
                     <div class="absolute top-4 left-4">
                         <span class="px-3 py-1 text-xs font-semibold bg-black/70 backdrop-blur rounded-full">FOTO</span>
                     </div>
@@ -372,66 +474,19 @@
                     <div class="flex justify-between items-start">
                         <div>
                             <h4 class="font-semibold text-xl tracking-tight">Peak Performance</h4>
-                            <p class="text-emerald-400 text-sm">Atleta CrossFit • Action</p>
+                            <p class="text-emerald-400 text-sm">Action • Atleta</p>
                         </div>
                         <i class="fa-solid fa-arrow-up-right-from-square text-zinc-500 group-hover:text-emerald-400 transition-colors mt-1"></i>
                     </div>
                 </div>
             </div>
 
-            <!-- FOTO 2 -->
+            <!-- VIDEO - Social per Ristoranti -->
             <div class="portfolio-card group bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800 cursor-pointer" 
-                 data-category="foto" onclick="showProjectModal(1)">
-                <div class="relative overflow-hidden aspect-video">
-                    <img src="https://picsum.photos/id/292/800/600" 
-                         class="portfolio-img w-full h-full object-cover" alt="Piatto gourmet ristorante">
-                    <div class="absolute top-4 left-4">
-                        <span class="px-3 py-1 text-xs font-semibold bg-black/70 backdrop-blur rounded-full">FOTO</span>
-                    </div>
-                </div>
-                <div class="p-6">
-                    <div class="flex justify-between items-start">
-                        <div>
-                            <h4 class="font-semibold text-xl tracking-tight">L'Essenza</h4>
-                            <p class="text-emerald-400 text-sm">Ristorante • Food Photography</p>
-                        </div>
-                        <i class="fa-solid fa-arrow-up-right-from-square text-zinc-500 group-hover:text-emerald-400 transition-colors mt-1"></i>
-                    </div>
-                </div>
-            </div>
-
-            <!-- VIDEO 1 -->
-            <div class="portfolio-card group bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800 cursor-pointer" 
-                 data-category="video" onclick="showProjectModal(2)">
-                <div class="relative overflow-hidden aspect-video">
-                    <img src="https://picsum.photos/id/1016/800/600" 
-                         class="portfolio-img w-full h-full object-cover" alt="Video highlight atleta">
-                    <div class="absolute inset-0 flex items-center justify-center">
-                        <div class="w-14 h-14 bg-white/90 rounded-full flex items-center justify-center">
-                            <i class="fa-solid fa-play text-zinc-950 ml-0.5"></i>
-                        </div>
-                    </div>
-                    <div class="absolute top-4 left-4">
-                        <span class="px-3 py-1 text-xs font-semibold bg-black/70 backdrop-blur rounded-full">VIDEO</span>
-                    </div>
-                </div>
-                <div class="p-6">
-                    <div class="flex justify-between items-start">
-                        <div>
-                            <h4 class="font-semibold text-xl tracking-tight">Unstoppable 2025</h4>
-                            <p class="text-emerald-400 text-sm">Highlight reel • Atleta</p>
-                        </div>
-                        <i class="fa-solid fa-arrow-up-right-from-square text-zinc-500 group-hover:text-emerald-400 transition-colors mt-1"></i>
-                    </div>
-                </div>
-            </div>
-
-            <!-- VIDEO 2 -->
-            <div class="portfolio-card group bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800 cursor-pointer" 
-                 data-category="video" onclick="showProjectModal(3)">
+                 data-category="video" onclick="showProjectModal(5)">
                 <div class="relative overflow-hidden aspect-video">
                     <img src="https://picsum.photos/id/160/800/600" 
-                         class="portfolio-img w-full h-full object-cover" alt="Video ristorante">
+                         class="portfolio-img w-full h-full object-cover" alt="Social Video Ristorante">
                     <div class="absolute inset-0 flex items-center justify-center">
                         <div class="w-14 h-14 bg-white/90 rounded-full flex items-center justify-center">
                             <i class="fa-solid fa-play text-zinc-950 ml-0.5"></i>
@@ -444,50 +499,8 @@
                 <div class="p-6">
                     <div class="flex justify-between items-start">
                         <div>
-                            <h4 class="font-semibold text-xl tracking-tight">Dietro le quinte</h4>
-                            <p class="text-emerald-400 text-sm">Ristorante • Social Video</p>
-                        </div>
-                        <i class="fa-solid fa-arrow-up-right-from-square text-zinc-500 group-hover:text-emerald-400 transition-colors mt-1"></i>
-                    </div>
-                </div>
-            </div>
-
-            <!-- WEB 1 -->
-            <div class="portfolio-card group bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800 cursor-pointer" 
-                 data-category="web" onclick="showProjectModal(4)">
-                <div class="relative overflow-hidden aspect-video bg-zinc-800">
-                    <img src="https://picsum.photos/id/201/800/600" 
-                         class="portfolio-img w-full h-full object-cover" alt="Sito web portfolio">
-                    <div class="absolute top-4 left-4">
-                        <span class="px-3 py-1 text-xs font-semibold bg-black/70 backdrop-blur rounded-full">WEB</span>
-                    </div>
-                </div>
-                <div class="p-6">
-                    <div class="flex justify-between items-start">
-                        <div>
-                            <h4 class="font-semibold text-xl tracking-tight">Portfolio Pro</h4>
-                            <p class="text-emerald-400 text-sm">Sito portfolio • Fotografo</p>
-                        </div>
-                        <i class="fa-solid fa-arrow-up-right-from-square text-zinc-500 group-hover:text-emerald-400 transition-colors mt-1"></i>
-                    </div>
-                </div>
-            </div>
-
-            <!-- WEB 2 -->
-            <div class="portfolio-card group bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800 cursor-pointer" 
-                 data-category="web" onclick="showProjectModal(5)">
-                <div class="relative overflow-hidden aspect-video bg-zinc-800">
-                    <img src="https://picsum.photos/id/251/800/600" 
-                         class="portfolio-img w-full h-full object-cover" alt="Landing page palestra">
-                    <div class="absolute top-4 left-4">
-                        <span class="px-3 py-1 text-xs font-semibold bg-black/70 backdrop-blur rounded-full">WEB</span>
-                    </div>
-                </div>
-                <div class="p-6">
-                    <div class="flex justify-between items-start">
-                        <div>
-                            <h4 class="font-semibold text-xl tracking-tight">Forge Gym</h4>
-                            <p class="text-emerald-400 text-sm">Landing page • Palestra</p>
+                            <h4 class="font-semibold text-xl tracking-tight">Dietro le Quinte</h4>
+                            <p class="text-emerald-400 text-sm">Social Video • Ristorante</p>
                         </div>
                         <i class="fa-solid fa-arrow-up-right-from-square text-zinc-500 group-hover:text-emerald-400 transition-colors mt-1"></i>
                     </div>
@@ -517,14 +530,14 @@
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star"></i>
                     </div>
-                    <p class="italic text-zinc-300">"Luca ha capito esattamente cosa volevo trasmettere. Le foto degli allenamenti sono diventate il mio biglietto da visita sui social."</p>
+                    <p class="italic text-zinc-300">"Francesco ha capito esattamente cosa volevo trasmettere. Le foto degli allenamenti sono diventate il mio biglietto da visita sui social."</p>
                     <div class="mt-8 flex items-center gap-x-4">
                         <div class="w-10 h-10 bg-zinc-700 rounded-full overflow-hidden">
                             <img src="https://picsum.photos/id/1005/40/40" alt="">
                         </div>
                         <div>
                             <div class="font-semibold">Marco T.</div>
-                            <div class="text-xs text-zinc-500">Atleta CrossFit Pro</div>
+                            <div class="text-xs text-zinc-500">Atleta Bodybuilding</div>
                         </div>
                     </div>
                 </div>
@@ -537,14 +550,14 @@
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star-half-stroke"></i>
                     </div>
-                    <p class="italic text-zinc-300">"Il video del ristorante ha aumentato le prenotazioni del 40% in un mese. Luca ha un occhio incredibile per i dettagli che fanno la differenza."</p>
+                    <p class="italic text-zinc-300">"Il video per LUMINA ha aumentato le prenotazioni del 40% in un mese. Francesco ha un occhio incredibile per i dettagli che fanno la differenza."</p>
                     <div class="mt-8 flex items-center gap-x-4">
                         <div class="w-10 h-10 bg-zinc-700 rounded-full overflow-hidden">
                             <img src="https://picsum.photos/id/292/40/40" alt="">
                         </div>
                         <div>
                             <div class="font-semibold">Elena B.</div>
-                            <div class="text-xs text-zinc-500">Owner • Ristorante Il Gusto</div>
+                            <div class="text-xs text-zinc-500">Owner • LUMINA Milano</div>
                         </div>
                     </div>
                 </div>
@@ -601,7 +614,15 @@
         </div>
 
         <div class="max-w-2xl mx-auto">
-            <form id="contact-form" onsubmit="handleSubmit(event)" class="space-y-6">
+            <form id="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="handleSubmit(event)" class="space-y-6">
+                <!-- Honeypot anti-spam (hidden) -->
+                <p class="hidden">
+                    <label>Non compilare questo campo: <input name="bot-field"></label>
+                </p>
+                
+                <!-- Hidden subject for emails -->
+                <input type="hidden" name="subject" value="Nuovo messaggio dal portfolio - Francesco Tavernese">
+                
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                         <label class="block text-sm font-medium mb-2 text-zinc-400">Nome</label>
@@ -742,75 +763,81 @@
         const projects = [
             {
                 id: 0,
-                category: "foto",
-                title: "Peak Performance",
-                subtitle: "Action Photography • Atleta CrossFit",
-                image: "https://picsum.photos/id/1005/1200/800",
-                description: "Sessione fotografica d'azione per un atleta professionista di CrossFit. L'obiettivo era catturare potenza, determinazione e il momento di picco durante gli esercizi più intensi.",
-                details: "Scatti realizzati con Canon R5 + 70-200mm f/2.8. Post-produzione in Lightroom con color grading ad alto contrasto per enfatizzare l'energia.",
-                client: "Atleta CrossFit Pro",
-                year: "2025",
-                tags: ["Action", "Sport", "Portrait"]
+                category: "video",
+                title: "The Ritual",
+                subtitle: "Cinematic Gym Video • Allenamento",
+                image: "images/ritual.jpg",
+                description: "Video cinematografico che trasforma un allenamento in un rituale di forza e disciplina. Luce drammatica e composizioni intense per elevare il movimento.",
+                details: "Girato in palestra con illuminazione cinematografica. Focus su dettagli, sforzo e composizioni drammatiche. Montaggio con slow-motion e color grading scuro e potente.",
+                client: "Progetto personale / Commissionato",
+                year: "2026",
+                tags: ["Cinematic", "Gym", "Storytelling"],
+                liveUrl: ""
             },
             {
                 id: 1,
                 category: "foto",
-                title: "L'Essenza",
-                subtitle: "Food Photography • Ristorante stellato",
-                image: "JHcen.jpg",
-                description: "Servizio fotografico completo per il menu di un ristorante stellato. Focus su texture, colori naturali e presentazione che fa venire fame.",
-                details: "Luce naturale + softbox laterale. 45° angle + overhead shots. Editing con toni caldi e contrasto controllato.",
-                client: "Ristorante Il Gusto",
-                year: "2025",
-                tags: ["Food", "Restaurant", "Menu"]
+                title: "Le Mani del Redentore",
+                subtitle: "Fotografia Artistica • Concetto Religioso",
+                image: "images/mani-redentore.jpg",
+                description: "Scatto concettuale che ritrae il modello come figura sacra. Luce naturale drammatica e gestualità emotiva su pietra antica.",
+                details: "Luce naturale con forti contrasti e raggi caldi. Composizione intima e potente. Post-produzione delicata per esaltare texture e emozione.",
+                client: "Artista / Progetto concettuale",
+                year: "2026",
+                tags: ["Art", "Conceptual", "Light"],
+                liveUrl: ""
             },
             {
                 id: 2,
-                category: "video",
-                title: "Unstoppable 2025",
-                subtitle: "Highlight Reel • Atleta",
-                image: "https://picsum.photos/id/1016/1200/800",
-                description: "Video highlight di 60 secondi per i social di un atleta. Mix di slow-motion, action cam e riprese cinematografiche per trasmettere forza e motivazione.",
-                details: "Girato con Sony FX3 + gimbal. Montaggio in DaVinci Resolve + color grading cinematografico. Musica originale royalty-free.",
-                client: "Atleta professionista",
-                year: "2025",
-                tags: ["Reel", "Highlight", "Motivational"]
+                category: "web",
+                title: "Osteria del Camino",
+                subtitle: "Sito Web • Ristorante Calabrese",
+                image: "images/osteria-interior.jpg",
+                description: "Sito ufficiale per Osteria del Camino, storica osteria calabrese a Cosenza dal 1987. Design rustico ed elegante che racconta tre generazioni di famiglia, la brace e i prodotti del territorio.",
+                details: "Sviluppato con focus su esperienza utente, menù interattivo e prenotazione online. Design caldo e autentico che riflette l'identità del locale.",
+                client: "Osteria del Camino - Cosenza",
+                year: "2026",
+                tags: ["Restaurant", "Next.js", "Booking"],
+                liveUrl: "https://osteria-del-camino-i5zf.vercel.app/"
             },
             {
                 id: 3,
-                category: "video",
-                title: "Dietro le quinte",
-                subtitle: "Social Video • Ristorante",
-                image: "dCRp3.jpg",
-                description: "Serie di reel e video brevi per Instagram e TikTok del ristorante. Obiettivo: mostrare la passione in cucina e far venire voglia di prenotare.",
-                details: "3 reel da 15-30 secondi + 1 video verticale lungo. Uso di transizioni fluide, testo animato e sound design accattivante.",
-                client: "Ristorante Il Gusto",
-                year: "2025",
-                tags: ["Reels", "Social Media", "Food"]
+                category: "web",
+                title: "LUMINA",
+                subtitle: "Sito Web • Ristorante Fine Dining Milano",
+                image: "images/lumina-interior.jpg",
+                description: "Sito per LUMINA, ristorante esclusivo a Milano con soli 10 tavoli. Esperienza sensoriale italiana di altissimo livello. Design elegante e minimal che comunica esclusività e cura del dettaglio.",
+                details: "Progettato per un pubblico premium. Esperienza immersiva con navigazione fluida, menù curato e sistema di prenotazione raffinato.",
+                client: "LUMINA - Milano",
+                year: "2026",
+                tags: ["Fine Dining", "Premium", "Experience"],
+                liveUrl: "https://lumina-ruby-alpha.vercel.app/"
             },
             {
                 id: 4,
-                category: "web",
-                title: "Portfolio Pro",
-                subtitle: "Sito Web • Fotografo professionista",
-                image: "https://picsum.photos/id/201/1200/800",
-                description: "Sito portfolio moderno e minimal per una fotografa di ritratto. Design pulito con focus sulle immagini e esperienza di navigazione fluida.",
-                details: "Sviluppato con Next.js + Tailwind + Framer Motion. Dark mode, galleria masonry, modal progetti e form contatti integrato.",
-                client: "Sofia R. Fotografia",
+                category: "foto",
+                title: "Peak Performance",
+                subtitle: "Action Photography • Atleta",
+                image: "https://picsum.photos/id/1005/1200/800",
+                description: "Sessione fotografica d'azione pensata per valorizzare potenza, determinazione e intensità atletica. Ideale per palestre, atleti e brand sportivi.",
+                details: "Scatti con luce laterale drammatica e momenti di picco. Post-produzione con contrasto elevato e color grading energico.",
+                client: "Atleti e Palestre",
                 year: "2025",
-                tags: ["Next.js", "Portfolio", "Minimal"]
+                tags: ["Action", "Sport", "Athlete"],
+                liveUrl: ""
             },
             {
                 id: 5,
-                category: "web",
-                title: "Forge Gym",
-                subtitle: "Landing Page • Palestra",
-                image: "https://picsum.photos/id/251/1200/800",
-                description: "Landing page ad alta conversione per una palestra boutique. Design energico con sezioni chiare: chi siamo, programmi, testimonianze e call-to-action forti.",
-                details: "Sviluppato con React + Tailwind. Ottimizzato per velocità (Lighthouse 98+). Integrazione con calendario prenotazioni e WhatsApp.",
-                client: "Forge Gym Milano",
+                category: "video",
+                title: "Dietro le Quinte Ristorante",
+                subtitle: "Social Video • Content per Ristoranti",
+                image: "https://picsum.photos/id/160/1200/800",
+                description: "Serie di video e reel pensati per far vivere l'atmosfera e la passione dietro un ristorante. Perfetti per aumentare engagement e prenotazioni sui social.",
+                details: "Riprese in cucina e sala, slow motion su dettagli food, sound design accattivante. Ideale per Instagram e TikTok.",
+                client: "Ristoranti e Locali",
                 year: "2025",
-                tags: ["Landing Page", "Fitness", "Conversion"]
+                tags: ["Reels", "Food", "Social"],
+                liveUrl: ""
             }
         ];
 
@@ -869,6 +896,14 @@
                         </div>
 
                         <div class="flex flex-col sm:flex-row gap-4 pt-6 border-t border-zinc-800">
+                            ${project.liveUrl ? `
+                            <a href="${project.liveUrl}" target="_blank"
+                               class="flex-1 py-4 bg-white hover:bg-zinc-100 transition-colors text-zinc-950 font-semibold rounded-2xl flex items-center justify-center gap-x-3 text-center">
+                                <span>Visita il sito</span>
+                                <i class="fa-solid fa-external-link-alt"></i>
+                            </a>
+                            ` : ''}
+                            
                             <button onclick="contactForProject('${project.title}')" 
                                     class="flex-1 py-4 bg-emerald-500 hover:bg-emerald-600 transition-colors text-white font-semibold rounded-2xl flex items-center justify-center gap-x-3">
                                 <span>Voglio un progetto simile</span>
@@ -907,7 +942,7 @@
                 setTimeout(() => {
                     const textarea = document.querySelector('#contact textarea');
                     if (textarea) {
-                        textarea.value = `Ciao Luca! Mi è piaciuto tantissimo il progetto "${projectTitle}". Vorrei discutere di qualcosa di simile per il mio brand.`;
+                        textarea.value = `Ciao Francesco! Mi è piaciuto tantissimo il progetto "${projectTitle}". Vorrei discutere di qualcosa di simile per il mio brand.`;
                         textarea.focus();
                     }
                 }, 800);

@@ -36,12 +36,17 @@
         }
 
         .portfolio-card {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+                        box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                        border-color 0.3s ease;
+            border: 1px solid #27272a;
         }
         
         .portfolio-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+            transform: translateY(-6px);
+            border-color: #10b981;
+            box-shadow: 0 0 0 1px rgba(16, 185, 129, 0.25),
+                        0 25px 50px -12px rgb(0 0 0 / 0.4);
         }
 
         .nav-link {
@@ -93,13 +98,6 @@
             }
         }
 
-        .skill-bar {
-            height: 6px;
-            background: linear-gradient(to right, #10b981, #34d399);
-            border-radius: 9999px;
-            transition: width 1.5s ease;
-        }
-
         .portfolio-img {
             transition: transform 0.5s ease;
         }
@@ -107,23 +105,21 @@
         .portfolio-card:hover .portfolio-img {
             transform: scale(1.05);
         }
-
-        .dark-bg {
-            background-color: #0a0a0a;
-        }
     </style>
 </head>
 <body class="bg-zinc-950 text-zinc-200">
+    
+    <!-- INTERACTIVE WAVES BACKGROUND -->
+    <canvas id="interactive-waves"></canvas>
+
     <!-- NAVBAR -->
     <nav class="fixed top-0 left-0 right-0 z-50 bg-zinc-950/95 backdrop-blur-lg border-b border-zinc-800">
         <div class="max-w-7xl mx-auto px-6">
             <div class="flex items-center justify-between h-20">
-                <!-- Logo -->
                 <div>
                     <img src="images/francesco-tavernese-logo.png" alt="Francesco Tavernese" class="h-12 w-auto">
                 </div>
 
-                <!-- Desktop Menu -->
                 <div class="hidden md:flex items-center gap-x-10 text-sm font-medium">
                     <a href="#about" class="nav-link">Chi sono</a>
                     <a href="#services" class="nav-link">Cosa faccio</a>
@@ -138,7 +134,6 @@
                     </a>
                 </div>
 
-                <!-- Mobile Menu Button -->
                 <button id="mobile-menu-btn"
                         class="md:hidden w-10 h-10 flex items-center justify-center text-zinc-400 hover:text-white">
                     <i class="fa-solid fa-bars text-xl"></i>
@@ -168,7 +163,6 @@
     <header class="pt-20 min-h-[100dvh] flex items-center relative overflow-hidden">
         <div class="max-w-5xl mx-auto px-6 relative z-10">
             <div class="max-w-3xl">
-                <!-- Badge -->
                 <div class="inline-flex items-center gap-x-2 px-4 py-1.5 rounded-3xl bg-zinc-900 border border-zinc-800 mb-6">
                     <div class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
                     <span class="text-sm font-medium text-emerald-400">Disponibile per nuovi progetti • 2026</span>
@@ -216,7 +210,6 @@
             </div>
         </div>
 
-        <!-- Hero visual hint -->
         <div class="absolute bottom-12 right-8 hidden lg:block">
             <div class="flex items-center gap-x-3 text-xs uppercase tracking-[3px] text-zinc-500">
                 <div class="h-px w-8 bg-zinc-700"></div>
@@ -226,7 +219,7 @@
     </header>
 
     <!-- ABOUT -->
-    <section id="about" class="max-w-5xl mx-auto px-6 py-20 border-t border-zinc-800">
+    <section id="about" class="max-w-5xl mx-auto px-6 py-20 border-t border-zinc-800 relative z-10">
         <div class="grid md:grid-cols-12 gap-x-12 items-center">
             <div class="md:col-span-5 mb-10 md:mb-0">
                 <div class="aspect-square bg-zinc-900 rounded-3xl border border-zinc-800 flex items-center justify-center p-10">
@@ -268,7 +261,7 @@
     </section>
 
     <!-- SERVICES -->
-    <section id="services" class="bg-zinc-900 py-20 border-t border-zinc-800">
+    <section id="services" class="bg-zinc-900 py-20 border-t border-zinc-800 relative z-10">
         <div class="max-w-6xl mx-auto px-6">
             <div class="text-center mb-14">
                 <div class="uppercase tracking-[2px] text-emerald-400 text-xs font-semibold mb-3">SERVIZI</div>
@@ -331,14 +324,13 @@
     </section>
 
     <!-- PORTFOLIO -->
-    <section id="portfolio" class="max-w-7xl mx-auto px-6 py-20">
+    <section id="portfolio" class="max-w-7xl mx-auto px-6 py-20 relative z-10">
         <div class="flex flex-col md:flex-row md:items-end md:justify-between mb-10">
             <div>
                 <div class="uppercase tracking-[2px] text-emerald-400 text-xs font-semibold mb-3">LAVORI SELEZIONATI</div>
                 <h2 class="text-5xl font-semibold tracking-tighter">Portfolio</h2>
             </div>
             
-            <!-- Filters -->
             <div class="flex flex-wrap gap-2 mt-6 md:mt-0" id="filter-buttons">
                 <button onclick="filterProjects('all')" 
                         class="filter-btn active px-6 py-2 text-sm font-medium border border-zinc-700 rounded-2xl hover:bg-zinc-900"
@@ -363,7 +355,6 @@
             </div>
         </div>
 
-        <!-- Portfolio Grid -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="portfolio-grid">
             
             <!-- VIDEO - The Ritual -->
@@ -455,7 +446,7 @@
                 </div>
             </div>
 
-            <!-- FOTO - Peak Performance (kept as strong example) -->
+            <!-- FOTO - Peak Performance -->
             <div class="portfolio-card group bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800 cursor-pointer" 
                  data-category="foto" onclick="showProjectModal(4)">
                 <div class="relative overflow-hidden aspect-video">
@@ -504,7 +495,7 @@
     </section>
 
     <!-- TESTIMONIALS -->
-    <section class="bg-zinc-900 py-20 border-t border-zinc-800">
+    <section class="bg-zinc-900 py-20 border-t border-zinc-800 relative z-10">
         <div class="max-w-5xl mx-auto px-6">
             <div class="text-center mb-12">
                 <div class="uppercase tracking-[2px] text-emerald-400 text-xs font-semibold mb-3">TESTIMONIANZE</div>
@@ -576,14 +567,13 @@
     </section>
 
     <!-- CONTACT -->
-    <section id="contact" class="max-w-4xl mx-auto px-6 py-20">
+    <section id="contact" class="max-w-4xl mx-auto px-6 py-20 relative z-10">
         <div class="text-center mb-12">
             <div class="uppercase tracking-[2px] text-emerald-400 text-xs font-semibold mb-3">PARLIAMO</div>
             <h2 class="text-5xl font-semibold tracking-tighter mb-4">Hai un progetto in mente?</h2>
             <p class="text-xl text-zinc-400 max-w-md mx-auto">Raccontami la tua storia. Troviamo insieme il modo migliore per raccontarla.</p>
         </div>
 
-        <!-- Direct contact info -->
         <div class="max-w-2xl mx-auto mb-10">
             <div class="bg-zinc-900 border border-zinc-800 rounded-3xl p-6 flex flex-col md:flex-row items-center justify-between gap-4">
                 <div class="flex items-center gap-x-4">
@@ -605,12 +595,10 @@
 
         <div class="max-w-2xl mx-auto">
             <form id="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="handleSubmit(event)" class="space-y-6">
-                <!-- Honeypot anti-spam (hidden) -->
                 <p class="hidden">
                     <label>Non compilare questo campo: <input name="bot-field"></label>
                 </p>
                 
-                <!-- Hidden subject for emails -->
                 <input type="hidden" name="subject" value="Nuovo messaggio dal portfolio - Francesco Tavernese">
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -660,7 +648,7 @@
     </section>
 
     <!-- FOOTER -->
-    <footer class="border-t border-zinc-800 py-10">
+    <footer class="border-t border-zinc-800 py-10 relative z-10">
         <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-y-4 text-sm text-zinc-500">
             <div>© 2026 Francesco Tavernese. Tutti i diritti riservati.</div>
             <div class="flex gap-x-6">
@@ -677,19 +665,235 @@
          class="hidden fixed inset-0 z-[100] bg-black/90 flex items-center justify-center p-6">
         <div onclick="event.stopImmediatePropagation()" 
              class="project-modal bg-zinc-900 max-w-3xl w-full rounded-3xl overflow-hidden border border-zinc-700 max-h-[90vh] overflow-y-auto">
-            
-            <!-- Modal content populated by JS -->
             <div id="modal-content"></div>
         </div>
     </div>
 
     <script>
-        // Tailwind script
+        // ==================== INTERACTIVE WAVES BACKGROUND ====================
+        (function() {
+            const canvas = document.getElementById('interactive-waves');
+            if (!canvas) return;
+
+            const ctx = canvas.getContext('2d');
+
+            let config = {
+                lineColor: 'rgba(148, 163, 184, 0.18)',
+                waveSpeedX: 0.015,
+                waveSpeedY: 0.008,
+                waveAmpX: 38,
+                waveAmpY: 22,
+                xGap: 14,
+                yGap: 40,
+                friction: 0.88,
+                tension: 0.012,
+                maxCursorMove: 90
+            };
+
+            class Grad {
+                constructor(x, y, z) { this.x = x; this.y = y; this.z = z; }
+                dot2(x, y) { return this.x * x + this.y * y; }
+            }
+
+            class Noise {
+                constructor(seed = 0) {
+                    this.grad3 = [
+                        new Grad(1,1,0), new Grad(-1,1,0), new Grad(1,-1,0), new Grad(-1,-1,0),
+                        new Grad(1,0,1), new Grad(-1,0,1), new Grad(1,0,-1), new Grad(-1,0,-1),
+                        new Grad(0,1,1), new Grad(0,-1,1), new Grad(0,1,-1), new Grad(0,-1,-1)
+                    ];
+                    this.p = [151,160,137,91,90,15,131,13,201,95,96,53,194,233,7,225,140,36,103,30,69,142,8,99,37,240,21,10,23,190,6,148,247,120,234,75,0,26,197,62,94,252,219,203,117,35,11,32,57,177,33,88,237,149,56,87,174,20,125,136,171,168,68,175,74,165,71,134,139,48,27,166,77,146,158,231,83,111,229,122,60,211,133,230,220,105,92,41,55,46,245,40,244,102,143,54,65,25,63,161,1,216,80,73,209,76,132,187,208,89,18,169,200,196,135,130,116,188,159,86,164,100,109,198,173,186,3,64,52,217,226,250,124,123,5,202,38,147,118,126,255,82,85,212,207,206,59,227,47,16,58,17,182,189,28,42,223,183,170,213,119,248,152,2,44,154,163,70,221,153,101,155,167,43,172,9,129,22,39,253,19,98,108,110,79,113,224,232,178,185,112,104,218,246,97,228,251,34,242,193,238,210,144,12,191,179,162,241,81,51,145,235,249,14,239,107,49,192,214,31,181,199,106,157,184,84,204,176,115,121,50,45,127,4,150,254,138,236,205,93,222,114,67,29,24,72,243,141,128,195,78,66,215,61,156,180];
+                    this.perm = new Array(512);
+                    this.gradP = new Array(512);
+                    this.seed(seed);
+                }
+                seed(seed) {
+                    if (seed > 0 && seed < 1) seed *= 65536;
+                    seed = Math.floor(seed);
+                    if (seed < 256) seed |= seed << 8;
+                    for (let i = 0; i < 256; i++) {
+                        let v = i & 1 ? this.p[i] ^ (seed & 255) : this.p[i] ^ ((seed >> 8) & 255);
+                        this.perm[i] = this.perm[i + 256] = v;
+                        this.gradP[i] = this.gradP[i + 256] = this.grad3[v % 12];
+                    }
+                }
+                fade(t) { return t * t * t * (t * (t * 6 - 15) + 10); }
+                lerp(a, b, t) { return (1 - t) * a + t * b; }
+                perlin2(x, y) {
+                    let X = Math.floor(x), Y = Math.floor(y);
+                    x -= X; y -= Y; X &= 255; Y &= 255;
+                    const n00 = this.gradP[X + this.perm[Y]].dot2(x, y);
+                    const n01 = this.gradP[X + this.perm[Y + 1]].dot2(x, y - 1);
+                    const n10 = this.gradP[X + 1 + this.perm[Y]].dot2(x - 1, y);
+                    const n11 = this.gradP[X + 1 + this.perm[Y + 1]].dot2(x - 1, y - 1);
+                    const u = this.fade(x);
+                    return this.lerp(this.lerp(n00, n10, u), this.lerp(n01, n11, u), this.fade(y));
+                }
+            }
+
+            let noise = new Noise(Math.random());
+            let lines = [];
+            let mouse = { x: -10, y: 0, lx: 0, ly: 0, sx: 0, sy: 0, v: 0, vs: 0, a: 0, set: false };
+            let frameId = null;
+            let bounding = { width: 0, height: 0, left: 0, top: 0 };
+
+            function setSize() {
+                bounding.width = window.innerWidth;
+                bounding.height = window.innerHeight;
+                canvas.width = bounding.width;
+                canvas.height = bounding.height;
+            }
+
+            function setLines() {
+                lines = [];
+                const { width, height } = bounding;
+                const oWidth = width + 200, oHeight = height + 30;
+                const { xGap, yGap } = config;
+                const totalLines = Math.ceil(oWidth / xGap);
+                const totalPoints = Math.ceil(oHeight / yGap);
+                const xStart = (width - xGap * totalLines) / 2;
+                const yStart = (height - yGap * totalPoints) / 2;
+
+                for (let i = 0; i <= totalLines; i++) {
+                    const pts = [];
+                    for (let j = 0; j <= totalPoints; j++) {
+                        pts.push({
+                            x: xStart + xGap * i,
+                            y: yStart + yGap * j,
+                            wave: { x: 0, y: 0 },
+                            cursor: { x: 0, y: 0, vx: 0, vy: 0 }
+                        });
+                    }
+                    lines.push(pts);
+                }
+            }
+
+            function movePoints(time) {
+                const { waveSpeedX, waveSpeedY, waveAmpX, waveAmpY, friction, tension, maxCursorMove } = config;
+                lines.forEach(pts => {
+                    pts.forEach(p => {
+                        const move = noise.perlin2((p.x + time * waveSpeedX) * 0.002, (p.y + time * waveSpeedY) * 0.0015) * 12;
+                        p.wave.x = Math.cos(move) * waveAmpX;
+                        p.wave.y = Math.sin(move) * waveAmpY;
+
+                        const dx = p.x - mouse.sx, dy = p.y - mouse.sy;
+                        const dist = Math.hypot(dx, dy);
+                        const l = Math.max(175, mouse.vs);
+                        if (dist < l) {
+                            const s = 1 - dist / l;
+                            const f = Math.cos(dist * 0.001) * s;
+                            p.cursor.vx += Math.cos(mouse.a) * f * l * mouse.vs * 0.00065;
+                            p.cursor.vy += Math.sin(mouse.a) * f * l * mouse.vs * 0.00065;
+                        }
+                        p.cursor.vx += (0 - p.cursor.x) * tension;
+                        p.cursor.vy += (0 - p.cursor.y) * tension;
+                        p.cursor.vx *= friction;
+                        p.cursor.vy *= friction;
+                        p.cursor.x += p.cursor.vx * 2;
+                        p.cursor.y += p.cursor.vy * 2;
+                        p.cursor.x = Math.min(maxCursorMove, Math.max(-maxCursorMove, p.cursor.x));
+                        p.cursor.y = Math.min(maxCursorMove, Math.max(-maxCursorMove, p.cursor.y));
+                    });
+                });
+            }
+
+            function moved(point, withCursor = true) {
+                const x = point.x + point.wave.x + (withCursor ? point.cursor.x : 0);
+                const y = point.y + point.wave.y + (withCursor ? point.cursor.y : 0);
+                return { x: Math.round(x * 10) / 10, y: Math.round(y * 10) / 10 };
+            }
+
+            function drawLines() {
+                ctx.clearRect(0, 0, bounding.width, bounding.height);
+                ctx.beginPath();
+                ctx.strokeStyle = config.lineColor;
+                ctx.lineWidth = 1.25;
+
+                lines.forEach(points => {
+                    let p1 = moved(points[0], false);
+                    ctx.moveTo(p1.x, p1.y);
+                    points.forEach((p, idx) => {
+                        const isLast = idx === points.length - 1;
+                        p1 = moved(p, !isLast);
+                        const p2 = moved(points[idx + 1] || points[points.length - 1], !isLast);
+                        ctx.lineTo(p1.x, p1.y);
+                        if (isLast) ctx.moveTo(p2.x, p2.y);
+                    });
+                });
+                ctx.stroke();
+            }
+
+            function tick(t) {
+                mouse.sx += (mouse.x - mouse.sx) * 0.1;
+                mouse.sy += (mouse.y - mouse.sy) * 0.1;
+
+                const dx = mouse.x - mouse.lx, dy = mouse.y - mouse.ly;
+                const d = Math.hypot(dx, dy);
+                mouse.v = d;
+                mouse.vs += (d - mouse.vs) * 0.1;
+                mouse.vs = Math.min(100, mouse.vs);
+                mouse.lx = mouse.x;
+                mouse.ly = mouse.y;
+                mouse.a = Math.atan2(dy, dx);
+
+                movePoints(t);
+                drawLines();
+                frameId = requestAnimationFrame(tick);
+            }
+
+            function updateMouse(x, y) {
+                mouse.x = x - bounding.left;
+                mouse.y = y - bounding.top;
+                if (!mouse.set) {
+                    mouse.sx = mouse.x; mouse.sy = mouse.y;
+                    mouse.lx = mouse.x; mouse.ly = mouse.y;
+                    mouse.set = true;
+                }
+            }
+
+            function onMouseMove(e) { updateMouse(e.clientX, e.clientY); }
+            function onTouchMove(e) {
+                if (e.touches.length > 0) updateMouse(e.touches[0].clientX, e.touches[0].clientY);
+            }
+            function onResize() { setSize(); setLines(); }
+
+            function initWaves() {
+                canvas.style.position = 'fixed';
+                canvas.style.top = '0';
+                canvas.style.left = '0';
+                canvas.style.width = '100%';
+                canvas.style.height = '100%';
+                canvas.style.zIndex = '-10';
+                canvas.style.pointerEvents = 'none';
+
+                setSize();
+                setLines();
+
+                window.addEventListener('resize', onResize);
+                window.addEventListener('mousemove', onMouseMove);
+                window.addEventListener('touchmove', onTouchMove, { passive: false });
+
+                frameId = requestAnimationFrame(tick);
+
+                setTimeout(() => {
+                    if (!mouse.set) {
+                        mouse.x = window.innerWidth * 0.6;
+                        mouse.y = window.innerHeight * 0.35;
+                        mouse.set = true;
+                        mouse.sx = mouse.x;
+                        mouse.sy = mouse.y;
+                    }
+                }, 700);
+            }
+
+            initWaves();
+        })();
+
+        // ==================== RESTO DELLO SCRIPT ORIGINALE ====================
         function initializeTailwind() {
             document.documentElement.style.setProperty('--accent', '#10b981');
         }
 
-        // Mobile menu
         const mobileBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
 
@@ -705,7 +909,6 @@
             }
         });
 
-        // Close mobile menu when clicking links
         document.querySelectorAll('.mobile-nav-link').forEach(link => {
             link.addEventListener('click', () => {
                 mobileMenu.classList.add('hidden');
@@ -715,14 +918,12 @@
             });
         });
 
-        // Portfolio Filter
         let currentFilter = 'all';
 
         function filterProjects(category) {
             const cards = document.querySelectorAll('#portfolio-grid .portfolio-card');
             const buttons = document.querySelectorAll('#filter-buttons .filter-btn');
 
-            // Update active button
             buttons.forEach(btn => {
                 btn.classList.remove('active', 'bg-emerald-500', 'text-white', 'border-emerald-500');
                 btn.classList.add('border-zinc-700');
@@ -740,98 +941,62 @@
                 if (category === 'all') {
                     card.style.display = 'block';
                 } else {
-                    if (card.dataset.category === category) {
-                        card.style.display = 'block';
-                    } else {
-                        card.style.display = 'none';
-                    }
+                    card.style.display = (card.dataset.category === category) ? 'block' : 'none';
                 }
             });
         }
 
-        // Project data
         const projects = [
             {
-                id: 0,
-                category: "video",
-                title: "The Ritual",
-                subtitle: "Cinematic Gym Video • Allenamento",
+                id: 0, category: "video", title: "The Ritual", subtitle: "Cinematic Gym Video • Allenamento",
                 image: "images/ritual.jpg",
                 description: "Video cinematografico che trasforma un allenamento in un rituale di forza e disciplina. Luce drammatica e composizioni intense per elevare il movimento.",
                 details: "Girato in palestra con illuminazione cinematografica. Focus su dettagli, sforzo e composizioni drammatiche. Montaggio con slow-motion e color grading scuro e potente.",
-                client: "Progetto personale / Commissionato",
-                year: "2026",
-                tags: ["Cinematic", "Gym", "Storytelling"],
-                liveUrl: ""
+                client: "Progetto personale / Commissionato", year: "2026",
+                tags: ["Cinematic", "Gym", "Storytelling"], liveUrl: ""
             },
             {
-                id: 1,
-                category: "foto",
-                title: "Le Mani del Redentore",
-                subtitle: "Fotografia Artistica • Concetto Religioso",
+                id: 1, category: "foto", title: "Le Mani del Redentore", subtitle: "Fotografia Artistica • Concetto Religioso",
                 image: "images/mani-redentore.jpg",
                 description: "Scatto concettuale che ritrae il modello come figura sacra. Luce naturale drammatica e gestualità emotiva su pietra antica.",
                 details: "Luce naturale con forti contrasti e raggi caldi. Composizione intima e potente. Post-produzione delicata per esaltare texture e emozione.",
-                client: "Artista / Progetto concettuale",
-                year: "2026",
-                tags: ["Art", "Conceptual", "Light"],
-                liveUrl: ""
+                client: "Artista / Progetto concettuale", year: "2026",
+                tags: ["Art", "Conceptual", "Light"], liveUrl: ""
             },
             {
-                id: 2,
-                category: "web",
-                title: "Osteria del Camino",
-                subtitle: "Sito Web • Ristorante Calabrese",
+                id: 2, category: "web", title: "Osteria del Camino", subtitle: "Sito Web • Ristorante Calabrese",
                 image: "images/osteria-interior.jpg",
-                description: "Sito ufficiale per Osteria del Camino, storica osteria calabrese a Cosenza dal 1987. Design rustico ed elegante che racconta tre generazioni di famiglia, la brace e i prodotti del territorio.",
-                details: "Sviluppato con focus su esperienza utente, menù interattivo e prenotazione online. Design caldo e autentico che riflette l'identità del locale.",
-                client: "Osteria del Camino - Cosenza",
-                year: "2026",
-                tags: ["Restaurant", "Next.js", "Booking"],
-                liveUrl: "https://osteria-del-camino-i5zf.vercel.app/"
+                description: "Sito ufficiale per Osteria del Camino, storica osteria calabrese a Cosenza dal 1987.",
+                details: "Sviluppato con focus su esperienza utente, menù interattivo e prenotazione online.",
+                client: "Osteria del Camino - Cosenza", year: "2026",
+                tags: ["Restaurant", "Next.js", "Booking"], liveUrl: "https://osteria-del-camino-i5zf.vercel.app/"
             },
             {
-                id: 3,
-                category: "web",
-                title: "LUMINA",
-                subtitle: "Sito Web • Ristorante Fine Dining Milano",
+                id: 3, category: "web", title: "LUMINA", subtitle: "Sito Web • Ristorante Fine Dining Milano",
                 image: "images/lumina-interior.jpg",
-                description: "Sito per LUMINA, ristorante esclusivo a Milano con soli 10 tavoli. Esperienza sensoriale italiana di altissimo livello. Design elegante e minimal che comunica esclusività e cura del dettaglio.",
-                details: "Progettato per un pubblico premium. Esperienza immersiva con navigazione fluida, menù curato e sistema di prenotazione raffinato.",
-                client: "LUMINA - Milano",
-                year: "2026",
-                tags: ["Fine Dining", "Premium", "Experience"],
-                liveUrl: "https://lumina-ruby-alpha.vercel.app/"
+                description: "Sito per LUMINA, ristorante esclusivo a Milano con soli 10 tavoli.",
+                details: "Progettato per un pubblico premium. Esperienza immersiva con navigazione fluida e sistema di prenotazione raffinato.",
+                client: "LUMINA - Milano", year: "2026",
+                tags: ["Fine Dining", "Premium", "Experience"], liveUrl: "https://lumina-ruby-alpha.vercel.app/"
             },
             {
-                id: 4,
-                category: "foto",
-                title: "Peak Performance",
-                subtitle: "Action Photography • Atleta",
+                id: 4, category: "foto", title: "Peak Performance", subtitle: "Action Photography • Atleta",
                 image: "https://picsum.photos/id/1005/1200/800",
-                description: "Sessione fotografica d'azione pensata per valorizzare potenza, determinazione e intensità atletica. Ideale per palestre, atleti e brand sportivi.",
-                details: "Scatti con luce laterale drammatica e momenti di picco. Post-produzione con contrasto elevato e color grading energico.",
-                client: "Atleti e Palestre",
-                year: "2025",
-                tags: ["Action", "Sport", "Athlete"],
-                liveUrl: ""
+                description: "Sessione fotografica d'azione pensata per valorizzare potenza, determinazione e intensità atletica.",
+                details: "Scatti con luce laterale drammatica e momenti di picco. Post-produzione con contrasto elevato.",
+                client: "Atleti e Palestre", year: "2025",
+                tags: ["Action", "Sport", "Athlete"], liveUrl: ""
             },
             {
-                id: 5,
-                category: "web",
-                title: "Éclat Noir",
-                subtitle: "Sito Web Luxury • Profumo Artigianale",
+                id: 5, category: "web", title: "Éclat Noir", subtitle: "Sito Web Luxury • Profumo Artigianale",
                 image: "images/eclat-noir-moodboard.jpg",
-                description: "Sito web cinematografico e premium per il lancio di Éclat Noir, Eau de Parfum Intense di Maison Luxe. Design dark luxury con hero video, piramide olfattiva interattiva e esperienza di acquisto elegante.",
-                details: "Realizzato con HTML, Tailwind CSS e JavaScript. Video hero cinematico, animazioni fluide, modal di acquisto, note olfattive espandibili e attenzione maniacale ai dettagli visivi per trasmettere esclusività e artigianalità.",
-                client: "Maison Luxe",
-                year: "2026",
-                tags: ["Luxury", "Web Design", "Cinematic", "E-commerce"],
-                liveUrl: ""
+                description: "Sito web cinematografico e premium per il lancio di Éclat Noir, Eau de Parfum Intense di Maison Luxe.",
+                details: "Realizzato con HTML, Tailwind CSS e JavaScript. Video hero cinematico, animazioni fluide e attenzione maniacale ai dettagli.",
+                client: "Maison Luxe", year: "2026",
+                tags: ["Luxury", "Web Design", "Cinematic", "E-commerce"], liveUrl: ""
             }
         ];
 
-        // Show project modal
         function showProjectModal(projectId) {
             const project = projects[projectId];
             const modal = document.getElementById('project-modal');
@@ -839,13 +1004,11 @@
 
             let html = `
                 <div class="relative">
-                    <!-- Close button -->
                     <button onclick="hideProjectModal()" 
                             class="absolute top-6 right-6 z-10 w-10 h-10 flex items-center justify-center bg-zinc-800 hover:bg-zinc-700 rounded-full text-xl">
                         <i class="fa-solid fa-times"></i>
                     </button>
 
-                    <!-- Hero image -->
                     <div class="aspect-video w-full overflow-hidden">
                         <img src="${project.image}" class="w-full h-full object-cover" alt="${project.title}">
                     </div>
@@ -877,9 +1040,7 @@
                                 <div class="mt-6">
                                     <div class="text-xs uppercase tracking-widest text-zinc-500 mb-3">TAG</div>
                                     <div class="flex flex-wrap gap-2">
-                                        ${project.tags.map(tag => `
-                                            <span class="px-3 py-1 text-xs bg-zinc-800 rounded-full">${tag}</span>
-                                        `).join('')}
+                                        ${project.tags.map(tag => `<span class="px-3 py-1 text-xs bg-zinc-800 rounded-full">${tag}</span>`).join('')}
                                     </div>
                                 </div>
                             </div>
@@ -891,8 +1052,7 @@
                                class="flex-1 py-4 bg-white hover:bg-zinc-100 transition-colors text-zinc-950 font-semibold rounded-2xl flex items-center justify-center gap-x-3 text-center">
                                 <span>Visita il sito</span>
                                 <i class="fa-solid fa-external-link-alt"></i>
-                            </a>
-                            ` : ''}
+                            </a>` : ''}
                             
                             <button onclick="contactForProject('${project.title}')" 
                                     class="flex-1 py-4 bg-emerald-500 hover:bg-emerald-600 transition-colors text-white font-semibold rounded-2xl flex items-center justify-center gap-x-3">
@@ -921,14 +1081,12 @@
             document.body.style.overflow = '';
         }
 
-        // Contact for similar project
         function contactForProject(projectTitle) {
             hideProjectModal();
             setTimeout(() => {
                 const contactSection = document.getElementById('contact');
                 contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 
-                // Pre-fill message idea
                 setTimeout(() => {
                     const textarea = document.querySelector('#contact textarea');
                     if (textarea) {
@@ -939,27 +1097,19 @@
             }, 400);
         }
 
-        // Contact form handler
         function handleSubmit(e) {
             e.preventDefault();
             
             const btn = e.target.querySelector('button[type="submit"]');
             const originalText = btn.innerHTML;
             
-            btn.innerHTML = `
-                <span class="flex items-center justify-center gap-x-3">
-                    <i class="fa-solid fa-check"></i> 
-                    <span>Messaggio inviato!</span>
-                </span>
-            `;
+            btn.innerHTML = `<span class="flex items-center justify-center gap-x-3"><i class="fa-solid fa-check"></i> <span>Messaggio inviato!</span></span>`;
             btn.disabled = true;
             btn.classList.add('!bg-emerald-600');
 
             setTimeout(() => {
-                // Reset form
                 e.target.reset();
                 
-                // Show thank you message
                 const thankYou = document.createElement('div');
                 thankYou.className = `mt-6 p-6 bg-emerald-500/10 border border-emerald-500/30 rounded-2xl text-center`;
                 thankYou.innerHTML = `
@@ -969,31 +1119,23 @@
                 
                 e.target.parentNode.appendChild(thankYou);
                 
-                // Reset button after 3s
                 setTimeout(() => {
                     btn.innerHTML = originalText;
                     btn.disabled = false;
                     btn.classList.remove('!bg-emerald-600');
                     
-                    // Remove thank you after some time
-                    setTimeout(() => {
-                        thankYou.remove();
-                    }, 4000);
+                    setTimeout(() => thankYou.remove(), 4000);
                 }, 3000);
             }, 1800);
         }
 
-        // Keyboard escape for modal
         document.addEventListener('keydown', function(e) {
             if (e.key === "Escape") {
                 const modal = document.getElementById('project-modal');
-                if (!modal.classList.contains('hidden')) {
-                    hideProjectModal();
-                }
+                if (!modal.classList.contains('hidden')) hideProjectModal();
             }
         });
 
-        // Active nav on scroll (simple)
         function initActiveNav() {
             const sections = ['about', 'services', 'portfolio', 'contact'];
             const navLinks = document.querySelectorAll('nav a[href^="#"]');
@@ -1004,9 +1146,7 @@
                     const section = document.getElementById(sectionId);
                     if (section) {
                         const sectionTop = section.getBoundingClientRect().top;
-                        if (sectionTop <= 150) {
-                            current = sectionId;
-                        }
+                        if (sectionTop <= 150) current = sectionId;
                     }
                 });
 
@@ -1019,20 +1159,16 @@
             });
         }
 
-        // Initialize everything
         function init() {
             initializeTailwind();
             initActiveNav();
             
-            // Set initial filter state
             const allBtn = document.querySelector('#filter-buttons button[data-filter="all"]');
             if (allBtn) allBtn.classList.add('active', 'bg-emerald-500', 'text-white', 'border-emerald-500');
 
-            // Optional: Random nice touch - animate skill bars if any (none here but ready)
-            console.log('%c[Portfolio] Sito inizializzato correttamente', 'color:#10b981');
+            console.log('%c[Portfolio] Sito inizializzato correttamente con Interactive Waves', 'color:#10b981');
         }
 
-        // Boot
         window.onload = init;
     </script>
 </body>

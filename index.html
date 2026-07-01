@@ -105,6 +105,18 @@
         .portfolio-card:hover .portfolio-img {
             transform: scale(1.05);
         }
+
+        /* GLOW + MARQUEE */
+        .glow-emerald { box-shadow: 0 0 20px rgba(16,185,129,.35), 0 10px 15px -3px rgb(0 0 0 / .2); transition: box-shadow .3s cubic-bezier(.4,0,.2,1), transform .2s cubic-bezier(.4,0,.2,1); }
+        .glow-emerald:hover { box-shadow: 0 0 35px rgba(16,185,129,.55), 0 20px 25px -5px rgb(0 0 0 / .25); transform: translateY(-2px); }
+        .glow-white { box-shadow: 0 0 15px rgba(255,255,255,.12); transition: box-shadow .3s ease, transform .2s ease; }
+        .glow-white:hover { box-shadow: 0 0 28px rgba(255,255,255,.22); transform: translateY(-1px); }
+
+        @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+        .animate-marquee { animation: marquee 38s linear infinite; will-change: transform; }
+        .animate-marquee:hover { animation-play-state: paused; }
+        .tool-pill { transition: all .3s cubic-bezier(.4,0,.2,1); }
+        .tool-pill:hover { transform: translateY(-3px) scale(1.015); border-color: #10b981; box-shadow: 0 0 0 1px rgba(16,185,129,.15), 0 15px 20px -4px rgb(0 0 0 / .25); }
     </style>
 </head>
 <body class="bg-zinc-950 text-zinc-200">
@@ -180,7 +192,7 @@
 
                 <div class="flex flex-col sm:flex-row gap-4">
                     <a href="#portfolio" 
-                       class="inline-flex items-center justify-center gap-x-3 px-8 py-4 bg-emerald-500 hover:bg-emerald-600 transition-all text-white font-semibold rounded-3xl text-lg">
+                       class="inline-flex items-center justify-center gap-x-3 px-8 py-4 bg-emerald-500 hover:bg-emerald-600 transition-all text-white font-semibold rounded-3xl text-lg glow-emerald">
                         <span>Esplora il portfolio</span>
                         <i class="fa-solid fa-arrow-right"></i>
                     </a>
@@ -217,6 +229,42 @@
             </div>
         </div>
     </header>
+
+    <!-- TOOLKIT - with scrolling marquee and distinct background -->
+    <section id="toolkit" class="bg-zinc-900 border-y border-zinc-800 py-16 relative z-10">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-10">
+                <div class="uppercase tracking-[2px] text-emerald-400 text-xs font-semibold mb-3">IL MIO TOOLKIT</div>
+                <h2 class="text-5xl font-semibold tracking-tighter">Strumenti che uso per creare</h2>
+            </div>
+
+            <div class="relative overflow-hidden py-2">
+                <div class="flex gap-4 animate-marquee whitespace-nowrap items-center">
+                    <!-- Tool pills - duplicated for seamless scroll -->
+                    <div class="tool-pill inline-flex items-center gap-x-3 px-6 py-4 bg-zinc-950 border border-zinc-800 rounded-3xl flex-shrink-0"><div class="w-9 h-9 flex items-center justify-center"><i class="fa-solid fa-wind text-[#38bdf8] text-3xl"></i></div><div class="font-semibold text-lg tracking-tight">Tailwind CSS</div></div>
+                    <div class="tool-pill inline-flex items-center gap-x-3 px-6 py-4 bg-zinc-950 border border-zinc-800 rounded-3xl flex-shrink-0"><div class="w-9 h-9 flex items-center justify-center"><span class="font-black text-2xl tracking-tighter">N</span></div><div class="font-semibold text-lg tracking-tight">Next.js</div></div>
+                    <div class="tool-pill inline-flex items-center gap-x-3 px-6 py-4 bg-zinc-950 border border-zinc-800 rounded-3xl flex-shrink-0"><div class="w-9 h-9 flex items-center justify-center"><i class="fa-solid fa-play text-emerald-400 text-2xl"></i></div><div class="font-semibold text-lg tracking-tight">Framer Motion</div></div>
+                    <div class="tool-pill inline-flex items-center gap-x-3 px-6 py-4 bg-zinc-950 border border-zinc-800 rounded-3xl flex-shrink-0"><div class="w-9 h-9 flex items-center justify-center"><span class="font-bold text-xl tracking-tighter">▲</span></div><div class="font-semibold text-lg tracking-tight">Vercel</div></div>
+                    <div class="tool-pill inline-flex items-center gap-x-3 px-6 py-4 bg-zinc-950 border border-zinc-800 rounded-3xl flex-shrink-0"><div class="w-9 h-9 flex items-center justify-center"><i class="fa-brands fa-js text-[#f7df1e] text-3xl"></i></div><div class="font-semibold text-lg tracking-tight">JavaScript</div></div>
+                    <div class="tool-pill inline-flex items-center gap-x-3 px-6 py-4 bg-zinc-950 border border-zinc-800 rounded-3xl flex-shrink-0"><div class="w-9 h-9 flex items-center justify-center"><i class="fa-solid fa-video text-emerald-400 text-2xl"></i></div><div class="font-semibold text-lg tracking-tight">DaVinci Resolve</div></div>
+                    <div class="tool-pill inline-flex items-center gap-x-3 px-6 py-4 bg-zinc-950 border border-zinc-800 rounded-3xl flex-shrink-0"><div class="w-9 h-9 flex items-center justify-center"><i class="fa-brands fa-figma text-[#f24e1e] text-3xl"></i></div><div class="font-semibold text-lg tracking-tight">Figma</div></div>
+                    <div class="tool-pill inline-flex items-center gap-x-3 px-6 py-4 bg-zinc-950 border border-zinc-800 rounded-3xl flex-shrink-0"><div class="w-9 h-9 flex items-center justify-center"><i class="fa-brands fa-git-alt text-[#f05032] text-3xl"></i></div><div class="font-semibold text-lg tracking-tight">Git</div></div>
+                    <div class="tool-pill inline-flex items-center gap-x-3 px-6 py-4 bg-zinc-950 border border-zinc-800 rounded-3xl flex-shrink-0"><div class="w-9 h-9 flex items-center justify-center"><i class="fa-brands fa-html5 text-[#e34f26] text-3xl"></i></div><div class="font-semibold text-lg tracking-tight">HTML5</div></div>
+
+                    <!-- Duplicate for infinite loop -->
+                    <div class="tool-pill inline-flex items-center gap-x-3 px-6 py-4 bg-zinc-950 border border-zinc-800 rounded-3xl flex-shrink-0"><div class="w-9 h-9 flex items-center justify-center"><i class="fa-solid fa-wind text-[#38bdf8] text-3xl"></i></div><div class="font-semibold text-lg tracking-tight">Tailwind CSS</div></div>
+                    <div class="tool-pill inline-flex items-center gap-x-3 px-6 py-4 bg-zinc-950 border border-zinc-800 rounded-3xl flex-shrink-0"><div class="w-9 h-9 flex items-center justify-center"><span class="font-black text-2xl tracking-tighter">N</span></div><div class="font-semibold text-lg tracking-tight">Next.js</div></div>
+                    <div class="tool-pill inline-flex items-center gap-x-3 px-6 py-4 bg-zinc-950 border border-zinc-800 rounded-3xl flex-shrink-0"><div class="w-9 h-9 flex items-center justify-center"><i class="fa-solid fa-play text-emerald-400 text-2xl"></i></div><div class="font-semibold text-lg tracking-tight">Framer Motion</div></div>
+                    <div class="tool-pill inline-flex items-center gap-x-3 px-6 py-4 bg-zinc-950 border border-zinc-800 rounded-3xl flex-shrink-0"><div class="w-9 h-9 flex items-center justify-center"><span class="font-bold text-xl tracking-tighter">▲</span></div><div class="font-semibold text-lg tracking-tight">Vercel</div></div>
+                    <div class="tool-pill inline-flex items-center gap-x-3 px-6 py-4 bg-zinc-950 border border-zinc-800 rounded-3xl flex-shrink-0"><div class="w-9 h-9 flex items-center justify-center"><i class="fa-brands fa-js text-[#f7df1e] text-3xl"></i></div><div class="font-semibold text-lg tracking-tight">JavaScript</div></div>
+                    <div class="tool-pill inline-flex items-center gap-x-3 px-6 py-4 bg-zinc-950 border border-zinc-800 rounded-3xl flex-shrink-0"><div class="w-9 h-9 flex items-center justify-center"><i class="fa-solid fa-video text-emerald-400 text-2xl"></i></div><div class="font-semibold text-lg tracking-tight">DaVinci Resolve</div></div>
+                    <div class="tool-pill inline-flex items-center gap-x-3 px-6 py-4 bg-zinc-950 border border-zinc-800 rounded-3xl flex-shrink-0"><div class="w-9 h-9 flex items-center justify-center"><i class="fa-brands fa-figma text-[#f24e1e] text-3xl"></i></div><div class="font-semibold text-lg tracking-tight">Figma</div></div>
+                    <div class="tool-pill inline-flex items-center gap-x-3 px-6 py-4 bg-zinc-950 border border-zinc-800 rounded-3xl flex-shrink-0"><div class="w-9 h-9 flex items-center justify-center"><i class="fa-brands fa-git-alt text-[#f05032] text-3xl"></i></div><div class="font-semibold text-lg tracking-tight">Git</div></div>
+                    <div class="tool-pill inline-flex items-center gap-x-3 px-6 py-4 bg-zinc-950 border border-zinc-800 rounded-3xl flex-shrink-0"><div class="w-9 h-9 flex items-center justify-center"><i class="fa-brands fa-html5 text-[#e34f26] text-3xl"></i></div><div class="font-semibold text-lg tracking-tight">HTML5</div></div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- ABOUT -->
     <section id="about" class="max-w-5xl mx-auto px-6 py-20 border-t border-zinc-800 relative z-10">
